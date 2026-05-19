@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  BASE_URL: /Miniproyecto3_DL
+
 permissions:
   contents: read
   pages: write
@@ -24,11 +27,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install MyST
         run: npm install -g mystmd
